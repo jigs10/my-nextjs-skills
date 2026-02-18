@@ -66,14 +66,25 @@ Next.js 15+ APIs (`params`, `searchParams`, `cookies`, `headers`) are asynchrono
 **The Gold Standard for modern Next.js.**
 Recommended for pages that combine static content (shell) with dynamic user data.
 
+> [!IMPORTANT]
+> **Canary Requirement**: As of mid-2024, PPR often requires the `next@canary` version. If you see `CanaryOnlyError`, run `npm install next@canary`.
+
 **Configuration (`next.config.ts`):**
 ```typescript
 const nextConfig = {
+  // ✅ serverExternalPackages is TOP-LEVEL in Next.js 15
+  serverExternalPackages: ['@some/native-package'],
+  
   experimental: {
-    ppr: 'incremental',
+    ppr: 'incremental', // or true for all pages
   },
 };
 ```
+
+**Common Pitfalls:**
+- **Unrecognized Key**: Do NOT put `serverComponentsExternalPackages` (renamed to `serverExternalPackages`) inside `experimental`.
+- **Canary Error**: PPR is an experimental feature that sometimes tracks ahead of stable releases.
+
 
 **Code Structure:**
 ```tsx
