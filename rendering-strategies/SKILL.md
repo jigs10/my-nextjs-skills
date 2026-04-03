@@ -1,5 +1,5 @@
 ---
-name: rendering-strategies
+name: jigz-nextjs-rendering
 description: Expert guidance on Next.js 15+ rendering patterns including PPR, ISR, and explicit caching strategies. Use when the user needs to decide on or implement rendering architectures, fix hydration errors, or optimize data fetching certification.
 metadata:
   version: 1.0.0
